@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+
+  body, h1, p, a {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #009dff;
+    font-weight: bold;
+    transition: color 0.3s ease
+  }
+
+  p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  body {
+    background-image: url("/Images/img_11.png");
+    /*background-size: cover;*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-blur: 5px;
+    filter: brightness(1.2) contrast(1.2);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  a:hover {
+    background-color: #0056b3;
+  }
+  .navigation {
+    text-align: center;
+    padding: 20px 0;
+    /*background-color: #007bff;*/
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-list li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .nav-list li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-list li a:hover {
+    background-color: #0056b3;
+  }
+
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  }
+
+</style>
+<head>
+  <title>Access Denied</title>
+</head>
+<body>
+
+<!--<h1>Access denied</h1>-->
+<!--<img src="/Images/img_1.png" alt="Access Denied">-->
+<h1><a  th:href="@{/}">Back to home page</a></h1>
+</body>
+</html>

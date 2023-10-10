@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #cccccc;
+  }
+
+
+  /* Logo styles */
+  .logo {
+    width: 50px;
+
+  }
+
+  .title {
+    flex: 1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    opacity: 0.7;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+
+
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  h3{
+    display: flex;
+    justify-content: center;
+    align-items: center
+  }
+  body {
+    background-image: url("/Images/img_4.jpg");
+    /*background-size: cover;*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-blur: 5px;
+    filter: brightness(1.2) contrast(1.2);
+    width: 100vw;
+    height: 100vh;
+  }
+  table{
+    display: flex;
+    justify-content: center;
+    align-items: center
+  }
+
+
+  .menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu-table th,
+  .menu-table td {
+    padding: 10px;
+    text-align: left;
+  }
+
+  .menu-table th {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .menu-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  .bottomleft {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 18px;
+  }
+
+  img {
+    width: 200%;
+    height: auto;
+
+  }
+
+  .navigation {
+    text-align: center;
+    padding: 20px 0;
+    /*background-color: #007bff;*/
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-list li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .nav-list li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-list li a:hover {
+    background-color: #0056b3;
+  }
+  @media (max-width: 768px) {
+    .menu-table {
+      font-size: 14px;
+    }
+  }
+</style>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<header>
+  <nav class="navigation">
+    <ul class="nav-list">
+      <li><a href="/">Home Page</a></li>
+      <li><a href="/view">View My Tickets</a></li>
+      <li><a href="/view1">Modify Tickets</a></li>
+      <li><a href="/register">Register</a></li>
+      <li><a th:href="@{/add}">Add Ticket</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Venue</th>
+    <th>Price</th>
+    <th>Seat Number</th>
+    <th>Date</th>
+    <th>Time</th>
+
+
+  </tr>
+  <tr th:each="ticket:${tickets}">
+    <td th:text="${ticket.id}"></td>
+
+    <td th:text="${ticket.name}"></td>
+    <td th:text="${ticket.venue}"></td>
+    <td th:text="'$' +${ticket.price}"></td>
+    <td th:text="${ticket.seatNumber}"></td>
+    <td th:text="${ticket.date}"></td>
+    <td th:text="${ticket.time}"></td>
+    <td ><a th:href="@{/edit/{id}(id=${ticket.id})}">EDIT</a></td>
+    <td ><a th:href="@{/delete/{id}(id=${ticket.id})}">DELETE</a></td>
+
+
+
+
+  </tr>
+
+
+
+</table>
+<h3>
+  <p> <a th:href="@{/}">Return to Home Page</a></p>
+</h3>
+
+</body>
+</html>
